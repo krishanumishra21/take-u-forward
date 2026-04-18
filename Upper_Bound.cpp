@@ -1,0 +1,12 @@
+class Solution{
+public:
+    int upperBound(vector<int> &nums, int x){
+                for(int i=0;i<nums.size();i++){
+            if(nums[i]>x){
+                return i;
+                break;
+            }
+        }
+        return nums.size();
+    }
+};
