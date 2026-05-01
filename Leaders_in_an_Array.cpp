@@ -1,24 +1,18 @@
 class Solution {
 public:
     vector<int> leaders(vector<int>& nums) {
-        vector<int> nums1;
-        int n = nums.size();
-
-        for(int i = 0; i < n; i++) {
-            bool isLeader = true;
-
-            for(int j = i + 1; j < n; j++) {
-                if(nums[i] <= nums[j]) {
-                    isLeader = false;
-                    break;
-                }
-            }
-
-            if(isLeader) {
-                nums1.push_back(nums[i]);
+        int n=nums.size();
+        vector <int> ans;
+        
+        int maxm=nums[n-1];
+        ans.push_back(maxm);
+        for(int i=n-2;i>=0;i--){
+            if(nums[i]>maxm){
+                maxm=nums[i];
+                ans.push_back(nums[i++]);
             }
         }
-
-        return nums1;
+        reverse(ans.begin(),ans.end());
+      return ans;
     }
 };
